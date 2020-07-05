@@ -38,8 +38,8 @@ function RoadmapPage() {
           <Typography paragraph><Done /> Allow diseases to be selected that influences lab output</Typography>
           <Typography paragraph><Done /> Separate lab generator into separate package</Typography>
           <Typography paragraph><Done /> Select labs, patient settings, disease process, etc.</Typography>
+          <Typography paragraph><Done /> Allow re-generation of lab results at the click of a button</Typography>
           <Typography paragraph><InProgress /> Add a help page</Typography>
-          <Typography paragraph><InProgress /> Allow re-generation of lab results at the click of a button</Typography>
           <Typography paragraph><InProgress /> Settings menu (e.g. long vs. short name, etc.)</Typography>
           <Typography paragraph><NotStarted /> Export PDF, DOCX, XLSX</Typography>
           <Typography paragraph><NotStarted /> Prevent calculated values from being updated directly, instead update as dependencies are changed</Typography>

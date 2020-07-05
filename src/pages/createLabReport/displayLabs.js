@@ -35,15 +35,15 @@ function LabList (props) {
 function DisplayLabsPage(props) {
   const classes = useStyles();
   
-  //const generateLabs = () => {
+  const generateLabs = () => {
     const result = generateLabResults(
       props.tests,
       props.disease,
       props.patient
     );  
 
-    //props.setReportResult(result);
-  //}
+    props.setReportResult(result);
+  }
 
   return (
     <>
@@ -53,14 +53,14 @@ function DisplayLabsPage(props) {
 
       <Container maxWidth="sm">
 
-        {/*<Box className={classes.root} pt={4}>
-          <Button disabled color="secondary" variant="contained" size="large">Generate New Values</Button>
-        </Box>*/}
+        <Box className={classes.root} pt={4}>
+          <Button color="secondary" variant="contained" size="large" onClick={generateLabs}>Generate New Values</Button>
+        </Box>
         <Box>
 
-          <LabList>
-            { _.chain(result).mapObject((results, category) => <LabCategory key={category} title={category} labResults={results} />).values().value() }
-          </LabList>
+        <LabList>
+          { _.chain(props.reportResult).mapObject((results, category) => <LabCategory key={category} title={category} labResults={results} />).values().value() }
+        </LabList>
 
         </Box>
         <Box pt={8}> </Box>
