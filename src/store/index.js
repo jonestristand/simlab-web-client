@@ -1,4 +1,6 @@
 import { createStore } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist'
+import localForage from 'localforage';
 
 import { patient } from './patient';
 import { disease } from './disease';
@@ -14,7 +16,19 @@ function mainReducer (state = {}, action) {
   };
 }
 
-// Only include devtools hook when in debug
-const store = createStore(mainReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const persistConfig = {
+  key: 'root',
+  storage: localForage,
+  timeout: 1000
+};
 
-export default store;
+const persistedReducer = persistReducer(persistConfig, mainReducer);
+
+// Only include devtools hook when in debug
+const store = createStore(persistedReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const persistor = persistStore(store);
+
+export {
+  store,
+  persistor
+};
