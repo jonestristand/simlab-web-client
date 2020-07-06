@@ -42,6 +42,7 @@ function RoadmapPage() {
           <Typography paragraph><Done /> Persist settings/labs requested across page refresh</Typography>
           <Typography paragraph><InProgress /> Add a help page</Typography>
           <Typography paragraph><InProgress /> Settings menu (e.g. long vs. short name, etc.)</Typography>
+          <Typography paragraph><NotStarted /> Allow locking of values that have been edited so that they don't get regenerated</Typography>
           <Typography paragraph><NotStarted /> Export PDF, DOCX, XLSX</Typography>
           <Typography paragraph><NotStarted /> Prevent calculated values from being updated directly, instead update as dependencies are changed</Typography>
           <Typography paragraph><NotStarted /> Save sets of labs to user account</Typography>
