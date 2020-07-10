@@ -18,6 +18,8 @@ import Copyright from './components/copyright';
 import FrontPage from './pages/front';
 import CreateLabReportPage from './pages/createLabReport';
 import RoadmapPage from './pages/roadmap';
+import SettingsPage from './pages/settings';
+import HelpPage from './pages/help';
 
 const useStyles = makeStyles(theme => ({
   appContainer: {
@@ -44,6 +46,12 @@ function App(props) {
             </Route>
             <Route path="/roadmap">
               <RoadmapPage />
+            </Route>
+            <Route path="/settings">
+              <SettingsPage />
+            </Route>
+            <Route path="/help">
+              <HelpPage />
             </Route>
             <Route path="/">
               <FrontPage />

@@ -49,7 +49,8 @@ class PageHeader extends React.Component {
             />*/}
             <Box mr={2}><Button color="inherit" component={RouterLink} to="/labs">Start Lab Report</Button></Box>
             <Box mr={2}><Button color="inherit" component={RouterLink} to="/roadmap">Roadmap</Button></Box>
-            <Box><Button color="inherit" disabled>Help</Button></Box>
+            <Box mr={2}><Button color="inherit" component={RouterLink} to="/settings">Settings</Button></Box>
+            <Box mr={2}><Button color="inherit" component={RouterLink} to="/help">Help</Button></Box>
           </Toolbar>
         </AppBar>
 
