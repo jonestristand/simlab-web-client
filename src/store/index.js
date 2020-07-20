@@ -5,6 +5,7 @@ import localForage from 'localforage';
 import { patient } from './patient';
 import { disease } from './disease';
 import { tests } from './tests';
+import { settings } from './settings';
 import { reportResult } from './reportResult';
 
 function mainReducer (state = {}, action) {
@@ -12,7 +13,8 @@ function mainReducer (state = {}, action) {
     patient: patient(state.patient, action),
     disease: disease(state.disease, action),
     tests: tests(state.tests, action),
-    reportResult: reportResult(state.reportResult, action)
+    reportResult: reportResult(state.reportResult, action),
+    settings: settings(state.settings, action)
   };
 }
 
