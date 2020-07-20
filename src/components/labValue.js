@@ -4,6 +4,9 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import InputBase from '@material-ui/core/InputBase';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockIcon from '@material-ui/icons/Lock';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -24,6 +27,8 @@ function LabValue(props) {
 
   const [ open, setOpen ] = useState(true);
   const [ value, setValue ] = useState(props.initialValue);
+  const [ lockHoverVisible, setLockHoverVisible ] = useState(false);
+  const [ locked, setLocked ] = useState(false);
 
   // Override local open state based on forceOpen prop
   useEffect(() => {
@@ -33,7 +38,9 @@ function LabValue(props) {
   // Override local value if we refresh (e.g. a new initialValue is provided)
   // TODO: Add a control to 'lock' one field'
   useEffect(() => {
-    setValue(props.initialValue);
+    if (!locked) {
+      setValue(props.initialValue);
+    }
   }, [props.initialValue]);
 
   let indicator = " ";
@@ -81,10 +88,21 @@ function LabValue(props) {
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={3} sm={4}>
+      <Grid item xs={1} sm={1} // TODO: Convert this to store lock state in the redux store
+        onClick={ () => setLocked(!locked) } 
+        onMouseEnter={ () => setLockHoverVisible(true) } 
+        onMouseLeave={ () => setLockHoverVisible(false) }
+      >
+        <Box displayPrint="none">
+          {locked ? <LockIcon color="secondary" /> : (
+            lockHoverVisible ? <LockOpenIcon color="disabled" /> : null
+          ) }
+        </Box>
+      </Grid>
+      <Grid item xs={3} sm={3}>
         <Typography align="right">{props.short}</Typography>
       </Grid>
-      <Grid item xs={6} sm={4}>
+      <Grid item xs={5} sm={4}>
         {valueField} 
       </Grid>
       <Grid item xs={3} sm={4}>
